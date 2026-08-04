@@ -9,7 +9,15 @@
  */
 int _printf(const char *format, ...)
 {
-	(void) format;
-	_putchar('H');
+	int i;
+
+	i = 0;
+	while (format[i] != '\0')
+	{
+		_putchar(format[i]);
+		i = i + 1;
+	}
+	
+	_putchar('\n');
 	return (0);
 }
