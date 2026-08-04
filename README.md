@@ -1,3 +1,3 @@
 # holbertonschool-printf
 
-This is the readme for our printf project.
+A function that produces output according to a format. (Relpicating the printf function).
