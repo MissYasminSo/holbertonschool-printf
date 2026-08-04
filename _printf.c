@@ -1,3 +1,6 @@
+#include "main.h"
+#include <stdio.h>
+
 /**
  * _printf - produces output according to a format
  * @format: char string with format directives
@@ -6,5 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
+	(void) format;
+	_putchar('H');
 	return (0);
 }
