@@ -40,7 +40,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 
-	_putchar('\n');
-	printf("%d \n", print_count);
-	return (i);
+	return (print_count);
 }
