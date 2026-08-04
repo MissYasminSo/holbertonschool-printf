@@ -3,6 +3,41 @@
 #include <stdarg.h>
 
 /**
+ * print_char - Adds character to stdout
+ * @args: variadic list arguments
+ *
+ * Return: int (1)
+ */
+int print_char(va_list args)
+{
+
+	_putchar(va_arg(args, int));
+	return (1);
+}
+
+/**
+ * print_string - Adds string to stdout
+ * @args: variadic list arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_string(va_list args)
+{
+	int count;
+	char *word;
+
+	count = 0;
+	word = va_arg(args, char*);
+	while (*word != '\0')
+	{
+		_putchar(*word);
+		word++;
+		count = count + 1;
+	}
+	return (count);
+}
+
+/**
  * _printf - produces output according to a format
  * @format: char string with format directives
  *
@@ -12,7 +47,6 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int print_count;
-	char *word;
 	va_list args;
 
 	va_start(args, format);
@@ -23,31 +57,23 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == 'c')
+			switch (format[i + 1])
 			{
-				_putchar(va_arg(args, int));
-				print_count = print_count + 1;
-				i = i + 2;
-				continue;
-			}
-			else if (format[i + 1] == 's')
-			{
-				word = va_arg(args, char*);
-				while (*word != '\0')
-				{
-					_putchar(*word);
-					word++;
-					print_count = print_count + 1;
-				}
-				i = i + 2;
-				continue;
+				case('c'):
+					print_count = print_count + print_char(args);
+					i = i + 2;
+					continue;
+				case('s'):
+					print_count = print_count + print_string(args);
+					i = i + 2;
+					continue;
 			}
 		}
 		_putchar(format[i]);
 		print_count = print_count + 1;
 		i = i + 1;
-	}
 
+	}
 	va_end(args);
 
 	_putchar('\n');
