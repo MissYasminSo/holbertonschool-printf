@@ -8,8 +8,15 @@
  */
 int print_char(va_list args)
 {
+	int char_arg;
 
-	_putchar(va_arg(args, int));
+	char_arg = va_arg(args, int);
+	if(char_arg != 0)
+		_putchar(char_arg);
+	else
+	{
+		_putchar('(');
+	}
 	return (1);
 }
 

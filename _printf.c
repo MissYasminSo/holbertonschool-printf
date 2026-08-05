@@ -31,12 +31,21 @@ int _printf(const char *format, ...)
 					print_count = print_count + print_string(args);
 					i = i + 2;
 					continue;
+				case('%'):
+					print_count = print_count + 1;
+					_putchar('%');
+					i = i + 2;
+					continue;
+				case('\0'):
+					return (-1);
+				default:
+					i = i + 1;
+					continue;
 			}
 		}
 		_putchar(format[i]);
 		print_count = print_count + 1;
 		i = i + 1;
-
 	}
 	va_end(args);
 
