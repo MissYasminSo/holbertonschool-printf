@@ -15,7 +15,7 @@ int print_char(va_list args)
 		_putchar(char_arg);
 	else
 	{
-		_putchar('(');
+		_putchar(char_arg);
 	}
 	return (1);
 }
