@@ -46,6 +46,45 @@ void test(void)
 		printf("Failed\n\n");
 	}
 
+	printf("Percent Case:\n");
+	actual = _printf("%");
+	printf(" : ");
+	expected = printf("%");
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
+	printf("Percent Percent Case:\n");
+	actual = _printf("%%");
+	printf(" : ");
+	expected = printf("%%");
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
+	printf("Printf String with Percent Case:\n");
+	actual = _printf("Should print a single percent sign: %%\n");
+	printf(" : ");
+	expected = printf("Should print a single percent sign: %%\n");
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
 	printf("Single Character Specifier Case:\n");
 	actual = _printf("%c", char_a);
 	printf(" : ");
@@ -141,6 +180,33 @@ void test(void)
 	actual = _printf("Hello %s World!", string_hello);
 	printf(" : ");
 	expected = printf("Hello %s World!", string_hello);
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
+	printf("String and Character Specifier and Percent Case:\n");
+	actual = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	printf(" : ");
+	expected = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
+
+	printf("String Specifier But No arg Case:\n");
+	actual = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	printf(" : ");
+	expected = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	printf("\nActual: %d Expected %d\n", actual, expected);
 	if (actual == expected)
 		printf("Success\n\n");
