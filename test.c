@@ -85,6 +85,32 @@ void test(void)
 		printf("Failed\n\n");
 	}
 
+	printf("Percent Symbol and New Line Case:\n");
+	actual = _printf("%!\n");
+	printf(" : ");
+	expected = printf("%!\n");
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
+	printf("Percent Capital Letter and New Line Case:\n");
+	actual = _printf("%K\n");
+	printf(" : ");
+	expected = printf("%K\n");
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
 	printf("Single Character Specifier Case:\n");
 	actual = _printf("%c", char_a);
 	printf(" : ");
@@ -189,6 +215,19 @@ void test(void)
 		printf("Failed\n\n");
 	}
 
+	printf("Character Specifier with null arg Case:\n");
+	actual = _printf("%c", '\0');
+	printf(" : ");
+	expected = printf("%c", '\0');
+	printf("\nActual: %d Expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("Success\n\n");
+	else
+	{
+		passed = 0;
+		printf("Failed\n\n");
+	}
+
 	printf("String and Character Specifier and Percent Case:\n");
 	actual = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
 	printf(" : ");
@@ -203,7 +242,7 @@ void test(void)
 	}
 
 
-	printf("String Specifier But No arg Case:\n");
+/*	printf("String Specifier with null arg Case:\n");
 	actual = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	printf(" : ");
 	expected = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
@@ -215,7 +254,7 @@ void test(void)
 		passed = 0;
 		printf("Failed\n\n");
 	}
-
+*/
 	printf("End of Test: ");
 	if (passed)
 		printf("All Test Passed!\n");

@@ -40,6 +40,8 @@ int _printf(const char *format, ...)
 					return (-1);
 				default:
 					i = i + 1;
+					print_count = print_count + 1;
+					_putchar('%');
 					continue;
 			}
 		}
