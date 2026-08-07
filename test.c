@@ -241,8 +241,7 @@ void test(void)
 		printf("Failed\n\n");
 	}
 
-
-/*	printf("String Specifier with null arg Case:\n");
+	printf("String Specifier with null arg Case:\n");
 	actual = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	printf(" : ");
 	expected = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
@@ -254,7 +253,7 @@ void test(void)
 		passed = 0;
 		printf("Failed\n\n");
 	}
-*/
+
 	printf("End of Test: ");
 	if (passed)
 		printf("All Test Passed!\n");
