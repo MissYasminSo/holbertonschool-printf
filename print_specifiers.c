@@ -7,11 +7,11 @@
  *
  * Return: int (1)
  */
-int print_char(va_list args)
+int print_char(va_list *args)
 {
 	int char_arg;
 
-	char_arg = va_arg(args, int);
+	char_arg = va_arg(*args, int);
 	_putchar(char_arg);
 	return (1);
 }
@@ -22,13 +22,13 @@ int print_char(va_list args)
  *
  * Return: Number of characters printed
  */
-int print_string(va_list args)
+int print_string(va_list *args)
 {
 	int count;
 	char *word;
 
 	count = 0;
-	word = va_arg(args, char*);
+	word = va_arg(*args, char*);
 	if (word == NULL)
 	{
 		_putchar('(');

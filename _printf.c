@@ -24,11 +24,11 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case('c'):
-					print_count = print_count + print_char(args);
+					print_count = print_count + print_char(&args);
 					i = i + 2;
 					continue;
 				case('s'):
-					print_count = print_count + print_string(args);
+					print_count = print_count + print_string(&args);
 					i = i + 2;
 					continue;
 				case('%'):
