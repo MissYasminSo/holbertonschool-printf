@@ -10,6 +10,10 @@ void test(void)
 	char char_b;
 	char *string_hello;
 	char *string_world;
+	int int_1;
+	int int_2;
+	int int_1234;
+	int int_5678;
 	int passed;
 
 	printf("Start of Tests:\n\n");
@@ -19,6 +23,10 @@ void test(void)
 	string_hello = "hello";
 	string_world = "world";
 	passed = 1;
+	int_1 = 1;
+	int_2 = 2;
+	int_1234 = 1234;
+	int_5678 = 5678;
 
 	printf("Empty Case\n");
 	actual = _printf("");
@@ -111,17 +119,17 @@ void test(void)
 		printf("Failed\n\n");
 	}
 
-	printf("Single Character Specifier Case:\n");
+	printf("Single character specifier case:\n");
 	actual = _printf("%c", char_a);
 	printf(" : ");
 	expected = printf("%c", char_a);
-	printf("\nActual: %d Expected %d\n", actual, expected);
+	printf("\nactual: %d expected %d\n", actual, expected);
 	if (actual == expected)
-		printf("Success\n\n");
+		printf("success\n\n");
 	else
 	{
 		passed = 0;
-		printf("Failed\n\n");
+		printf("failed\n\n");
 	}
 
 	printf("Single String Specifier Case:\n");
@@ -252,6 +260,84 @@ void test(void)
 	{
 		passed = 0;
 		printf("Failed\n\n");
+	}
+
+	printf("Single Integer specifier case:\n");
+	actual = _printf("%i", int_1);
+	printf(" : ");
+	expected = printf("%i", int_1);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Single Decimal specifier case:\n");
+	actual = _printf("%d", int_1);
+	printf(" : ");
+	expected = printf("%d", int_1);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Double Integer specifier case:\n");
+	actual = _printf("%i%i", int_1, int_2);
+	printf(" : ");
+	expected = printf("%i%i", int_1, int_2);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Double Decimal specifier case:\n");
+	actual = _printf("%d%d", int_1, int_2);
+	printf(" : ");
+	expected = printf("%d%d", int_1, int_2);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Thousand Integer specifier case:\n");
+	actual = _printf("%i%i", int_1234, int_5678);
+	printf(" : ");
+	expected = printf("%i%i", int_1234, int_5678);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Thousand Integer specifier case:\n");
+	actual = _printf("%d%d", int_1234, int_5678);
+	printf(" : ");
+	expected = printf("%d%d", int_1234, int_5678);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
 	}
 
 	printf("End of Test: ");

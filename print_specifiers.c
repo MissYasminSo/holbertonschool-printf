@@ -49,3 +49,44 @@ int print_string(va_list *args)
 	}
 	return (count);
 }
+
+/**
+ * print_int - Add integer to stdout
+ * @args: variadic list arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_int(va_list *args)
+{
+	(void) args;
+	int count;
+	int nums;
+	int rev_nums;
+
+	count = 0;
+	nums = va_arg(*args, int);
+	rev_nums = 0;
+
+	if (nums < 0)
+	{
+		_putchar('-');
+		nums = nums * -1;
+		count = count + 1;
+	}
+
+	while(nums > 0)
+	{
+		rev_nums = rev_nums * 10;
+		rev_nums = rev_nums + (nums % 10);
+		nums = nums / 10;
+	}
+
+	while (rev_nums > 0)
+	{
+		_putchar(rev_nums % 10 + '0');
+		count = count + 1;
+		rev_nums = rev_nums / 10;
+	}
+
+	return (count);
+}

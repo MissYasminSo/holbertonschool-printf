@@ -23,6 +23,13 @@ int _printf(const char *format, ...)
 		{
 			switch (format[i + 1])
 			{
+				case('\0'):
+					return (-1);
+				case('%'):
+					print_count = print_count + 1;
+					_putchar('%');
+					i = i + 2;
+					continue;
 				case('c'):
 					print_count = print_count + print_char(&args);
 					i = i + 2;
@@ -31,13 +38,14 @@ int _printf(const char *format, ...)
 					print_count = print_count + print_string(&args);
 					i = i + 2;
 					continue;
-				case('%'):
-					print_count = print_count + 1;
-					_putchar('%');
+				case('i'):
+					print_count = print_count + print_int(&args);
 					i = i + 2;
 					continue;
-				case('\0'):
-					return (-1);
+				case('d'):
+					print_count = print_count + print_int(&args);
+					i = i + 2;
+					continue;
 				default:
 					i = i + 1;
 					print_count = print_count + 1;
