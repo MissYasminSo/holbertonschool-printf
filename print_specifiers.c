@@ -58,7 +58,6 @@ int print_string(va_list *args)
  */
 int print_int(va_list *args)
 {
-	(void) args;
 	int count;
 	int nums;
 	int rev_nums;
