@@ -340,6 +340,45 @@ void test(void)
 		printf("failed\n\n");
 	}
 
+	printf("Zero Integer specifier case:\n");
+	actual = _printf("%d", 0);
+	printf(" : ");
+	expected = printf("%d", 0);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("1000 Integer specifier case:\n");
+	actual = _printf("%i", 1000);
+	printf(" : ");
+	expected = printf("%i", 1000);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("1000 Digit specifier case:\n");
+	actual = _printf("%d", 1000);
+	printf(" : ");
+	expected = printf("%d", 1000);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
 	printf("End of Test: ");
 	if (passed)
 		printf("All Test Passed!\n");
