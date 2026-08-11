@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include "main.h"
+#include <limits.h>
 
 void test(void)
 {
@@ -370,6 +371,110 @@ void test(void)
 	actual = _printf("%d", 1000);
 	printf(" : ");
 	expected = printf("%d", 1000);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MAX Digit specifier case:\n");
+	actual = _printf("%d", INT_MAX);
+	printf(" : ");
+	expected = printf("%d", INT_MAX);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MAX Integer specifier case:\n");
+	actual = _printf("%i", INT_MAX);
+	printf(" : ");
+	expected = printf("%i", INT_MAX);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MIN Digit specifier case:\n");
+	actual = _printf("%d", INT_MIN);
+	printf(" : ");
+	expected = printf("%d", INT_MIN);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MIN Integer specifier case:\n");
+	actual = _printf("%i", INT_MIN);
+	printf(" : ");
+	expected = printf("%i", INT_MIN);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MAX + 1024 Digit specifier case:\n");
+	actual = _printf("%d", INT_MAX + 1024);
+	printf(" : ");
+	expected = printf("%d", INT_MAX + 1024);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MAX + 1024 Integer specifier case:\n");
+	actual = _printf("%i", INT_MAX + 1024);
+	printf(" : ");
+	expected = printf("%i", INT_MAX + 1024);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MIN - 1024 Digit specifier case:\n");
+	actual = _printf("%d", INT_MIN - 1024);
+	printf(" : ");
+	expected = printf("%d", INT_MIN - 1024);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("INT_MIN - 1024 Integer specifier case:\n");
+	actual = _printf("%i", INT_MIN - 1024);
+	printf(" : ");
+	expected = printf("%i", INT_MIN - 1024);
 	printf("\nactual: %d expected %d\n", actual, expected);
 	if (actual == expected)
 		printf("success\n\n");

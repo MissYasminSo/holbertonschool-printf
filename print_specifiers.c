@@ -59,8 +59,8 @@ int print_string(va_list *args)
 int print_int(va_list *args)
 {
 	int count;
-	int nums;
-	int rev_nums;
+	long nums;
+	long rev_nums;
 	int num_length;
 
 	count = 0;
