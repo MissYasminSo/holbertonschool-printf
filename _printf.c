@@ -2,6 +2,38 @@
 #include <stdio.h>
 
 /**
+ * printer -
+ */
+int printer(char specifier, va_list *args, int *i)
+{
+	switch (specifier)
+	{
+		case('\0'):
+			return (-1);
+		case('%'):
+			_putchar('%');
+			*i = *i + 2;
+			return 1;
+		case('c'):
+			*i = *i + 2;
+			return print_char(args);
+		case('s'):
+			*i = *i + 2;
+			return print_string(args);
+		case('i'):
+			*i = *i + 2;
+			return print_int(args);
+		case('d'):
+			*i = *i + 2;
+			return print_int(args);
+		default:
+			*i = *i + 1;
+			_putchar('%');
+			return 1;
+	}
+}
+
+/**
  * _printf - produces output according to a format
  * @format: char string with format directives
  *
@@ -12,6 +44,7 @@ int _printf(const char *format, ...)
 	int i;
 	int print_count;
 	va_list args;
+	int result;
 
 	va_start(args, format);
 
@@ -21,41 +54,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
-			{
-				case('\0'):
-					return (-1);
-				case('%'):
-					print_count = print_count + 1;
-					_putchar('%');
-					i = i + 2;
-					continue;
-				case('c'):
-					print_count = print_count + print_char(&args);
-					i = i + 2;
-					continue;
-				case('s'):
-					print_count = print_count + print_string(&args);
-					i = i + 2;
-					continue;
-				case('i'):
-					print_count = print_count + print_int(&args);
-					i = i + 2;
-					continue;
-				case('d'):
-					print_count = print_count + print_int(&args);
-					i = i + 2;
-					continue;
-				default:
-					i = i + 1;
-					print_count = print_count + 1;
-					_putchar('%');
-					continue;
-			}
+			result = printer(format[i + 1], &args, &i);
+			if (result == -1)
+				return result;
+			else
+				print_count = print_count + result;
 		}
-		_putchar(format[i]);
-		print_count = print_count + 1;
-		i = i + 1;
+		else
+		{
+			_putchar(format[i]);
+			print_count = print_count + 1;
+			i = i + 1;
+		}
 	}
 	va_end(args);
 

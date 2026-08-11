@@ -8,5 +8,6 @@ int _putchar(char c);
 int print_char(va_list *args);
 int print_string(va_list *args);
 int print_int(va_list *args);
+int printer(char specifier, va_list *args, int *i);
 
 #endif

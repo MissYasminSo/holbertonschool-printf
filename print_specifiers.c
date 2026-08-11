@@ -81,7 +81,7 @@ int print_int(va_list *args)
 		count = count + 1;
 	}
 
-	while(nums > 0)
+	while (nums > 0)
 	{
 		rev_nums = rev_nums * 10;
 		rev_nums = rev_nums + (nums % 10);
