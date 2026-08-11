@@ -2,7 +2,12 @@
 #include <stdio.h>
 
 /**
- * printer -
+ * printer - Prints input based on specifier
+ * @specifier: Data type to be printed
+ * @args: Pointer to variadic list
+ * @i: Index of string to be printed
+ *
+ * Return: Number of characters printed
  */
 int printer(char specifier, va_list *args, int *i)
 {
@@ -13,23 +18,23 @@ int printer(char specifier, va_list *args, int *i)
 		case('%'):
 			_putchar('%');
 			*i = *i + 2;
-			return 1;
+			return (1);
 		case('c'):
 			*i = *i + 2;
-			return print_char(args);
+			return (print_char(args));
 		case('s'):
 			*i = *i + 2;
-			return print_string(args);
+			return (print_string(args));
 		case('i'):
 			*i = *i + 2;
-			return print_int(args);
+			return (print_int(args));
 		case('d'):
 			*i = *i + 2;
-			return print_int(args);
+			return (print_int(args));
 		default:
 			*i = *i + 1;
 			_putchar('%');
-			return 1;
+			return (1);
 	}
 }
 
@@ -56,9 +61,8 @@ int _printf(const char *format, ...)
 		{
 			result = printer(format[i + 1], &args, &i);
 			if (result == -1)
-				return result;
-			else
-				print_count = print_count + result;
+				return (result);
+			print_count = print_count + result;
 		}
 		else
 		{
