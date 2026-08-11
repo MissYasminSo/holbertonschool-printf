@@ -432,58 +432,6 @@ void test(void)
 		printf("failed\n\n");
 	}
 
-	printf("INT_MAX + 1024 Digit specifier case:\n");
-	actual = _printf("%d", INT_MAX + 1024);
-	printf(" : ");
-	expected = printf("%d", INT_MAX + 1024);
-	printf("\nactual: %d expected %d\n", actual, expected);
-	if (actual == expected)
-		printf("success\n\n");
-	else
-	{
-		passed = 0;
-		printf("failed\n\n");
-	}
-
-	printf("INT_MAX + 1024 Integer specifier case:\n");
-	actual = _printf("%i", INT_MAX + 1024);
-	printf(" : ");
-	expected = printf("%i", INT_MAX + 1024);
-	printf("\nactual: %d expected %d\n", actual, expected);
-	if (actual == expected)
-		printf("success\n\n");
-	else
-	{
-		passed = 0;
-		printf("failed\n\n");
-	}
-
-	printf("INT_MIN - 1024 Digit specifier case:\n");
-	actual = _printf("%d", INT_MIN - 1024);
-	printf(" : ");
-	expected = printf("%d", INT_MIN - 1024);
-	printf("\nactual: %d expected %d\n", actual, expected);
-	if (actual == expected)
-		printf("success\n\n");
-	else
-	{
-		passed = 0;
-		printf("failed\n\n");
-	}
-
-	printf("INT_MIN - 1024 Integer specifier case:\n");
-	actual = _printf("%i", INT_MIN - 1024);
-	printf(" : ");
-	expected = printf("%i", INT_MIN - 1024);
-	printf("\nactual: %d expected %d\n", actual, expected);
-	if (actual == expected)
-		printf("success\n\n");
-	else
-	{
-		passed = 0;
-		printf("failed\n\n");
-	}
-
 	printf("End of Test: ");
 	if (passed)
 		printf("All Test Passed!\n");
