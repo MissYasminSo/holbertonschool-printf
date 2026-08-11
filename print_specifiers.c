@@ -135,7 +135,101 @@ int print_octal(va_list *args)
 	return (count);
 }
 
+/**
+ * print_hex - Add hex to stdout
+ * @args: variadic list arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_hex(va_list *args)
+{
+	int count;
+	unsigned long int nums;
+	unsigned long int rev_nums;
+	int num_length;
+	int digit;
 
+	count = 0;
+	nums = va_arg(*args, unsigned int);
+	rev_nums = 0;
+	num_length = 0;
+
+	if (nums == 0)
+	{
+		_putchar('0');
+		count = count + 1;
+	}
+
+	while (nums > 0)
+	{
+		rev_nums = rev_nums * 16;
+		rev_nums = rev_nums + (nums % 16);
+		nums = nums / 16;
+		num_length = num_length + 1;
+	}
+
+	while (num_length > 0)
+	{
+		digit = rev_nums % 16;
+		if (digit > 10)
+			_putchar(digit - 10 + 'a');
+		else
+			_putchar(digit + '0');
+		count = count + 1;
+		rev_nums = rev_nums / 16;
+		num_length = num_length - 1;
+	}
+
+	return (count);
+}
+
+/**
+ * print_hex_upper - Add uppercase hex to stdout
+ * @args: variadic list arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_hex_upper(va_list *args)
+{
+	int count;
+	unsigned long int nums;
+	unsigned long int rev_nums;
+	int num_length;
+	int digit;
+
+	count = 0;
+	nums = va_arg(*args, unsigned int);
+	rev_nums = 0;
+	num_length = 0;
+
+	if (nums == 0)
+	{
+		_putchar('0');
+		count = count + 1;
+	}
+
+	while (nums > 0)
+	{
+		rev_nums = rev_nums * 16;
+		rev_nums = rev_nums + (nums % 16);
+		nums = nums / 16;
+		num_length = num_length + 1;
+	}
+
+	while (num_length > 0)
+	{
+		digit = rev_nums % 16;
+		if (digit > 10)
+			_putchar(digit - 10 + 'A');
+		else
+			_putchar(digit + '0');
+		count = count + 1;
+		rev_nums = rev_nums / 16;
+		num_length = num_length - 1;
+	}
+
+	return (count);
+}
 /**
  * print_int - Add integer to stdout
  * @args: variadic list arguments
