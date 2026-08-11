@@ -26,18 +26,17 @@ int print_string(va_list *args)
 {
 	int count;
 	char *word;
+	char *null_word = "(null)";
 
 	count = 0;
 	word = va_arg(*args, char*);
 	if (word == NULL)
 	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-
+		while (*null_word != '\0')
+		{
+			_putchar(*null_word);
+			null_word++;
+		}
 		count = count + 6;
 		return (count);
 	}
