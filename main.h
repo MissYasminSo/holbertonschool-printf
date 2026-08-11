@@ -3,11 +3,17 @@
 
 #include <stdarg.h>
 
+typedef struct specifier_s
+{
+	char data_type;
+	int (*print)(va_list *);
+} specifier_t;
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list *args);
 int print_string(va_list *args);
 int print_int(va_list *args);
-int printer(char specifier, va_list *args, int *i);
+int print_percent(va_list *args);
 
 #endif

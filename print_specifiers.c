@@ -98,3 +98,17 @@ int print_int(va_list *args)
 
 	return (count);
 }
+
+/**
+ * print_percent - print a percent character
+ * @args: variadic list arguments
+ *
+ * Return: int (1)
+ */
+int print_percent(va_list *args)
+{
+	(void) *args;
+
+	_putchar('%');
+	return (1);
+}

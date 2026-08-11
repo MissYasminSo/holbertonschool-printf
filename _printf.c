@@ -11,31 +11,33 @@
  */
 int printer(char specifier, va_list *args, int *i)
 {
-	switch (specifier)
+	int j;
+
+	specifier_t specifiers[] = {
+		{'%', print_percent},
+		{'c', print_char},
+		{'s', print_string},
+		{'i', print_int},
+		{'d', print_int},
+		{'\0', NULL}
+	};
+
+	if (specifier == '\0')
+		return (-1);
+
+	j = 0;
+	while (specifiers[j].data_type != '\0')
 	{
-		case('\0'):
-			return (-1);
-		case('%'):
-			_putchar('%');
+		if (specifier == specifiers[j].data_type)
+		{
 			*i = *i + 2;
-			return (1);
-		case('c'):
-			*i = *i + 2;
-			return (print_char(args));
-		case('s'):
-			*i = *i + 2;
-			return (print_string(args));
-		case('i'):
-			*i = *i + 2;
-			return (print_int(args));
-		case('d'):
-			*i = *i + 2;
-			return (print_int(args));
-		default:
-			*i = *i + 1;
-			_putchar('%');
-			return (1);
+			return (specifiers[j].print(args));	
+		}
+		j = j + 1;	
 	}
+
+	*i = *i + 1;
+	return (print_percent(args));
 }
 
 /**
