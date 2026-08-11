@@ -60,9 +60,12 @@ int _printf(const char *format, ...)
 			else
 				print_count = print_count + result;
 		}
-		_putchar(format[i]);
-		print_count = print_count + 1;
-		i = i + 1;
+		else
+		{
+			_putchar(format[i]);
+			print_count = print_count + 1;
+			i = i + 1;
+		}
 	}
 	va_end(args);
 
