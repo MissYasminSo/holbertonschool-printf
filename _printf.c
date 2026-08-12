@@ -19,6 +19,10 @@ int printer(char specifier, va_list *args, int *i)
 		{'s', print_string},
 		{'i', print_int},
 		{'d', print_int},
+		{'u', print_unsigned_int},
+		{'o', print_octal},
+		{'x', print_hex},
+		{'X', print_hex_upper},
 		{'\0', NULL}
 	};
 
@@ -31,9 +35,9 @@ int printer(char specifier, va_list *args, int *i)
 		if (specifier == specifiers[j].data_type)
 		{
 			*i = *i + 2;
-			return (specifiers[j].print(args));	
+			return (specifiers[j].print(args));
 		}
-		j = j + 1;	
+		j = j + 1;
 	}
 
 	*i = *i + 1;
