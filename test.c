@@ -432,6 +432,20 @@ void test(void)
 		printf("failed\n\n");
 	}
 
+	
+	printf("Binary specifier case:\n");
+	actual = _printf("%b", 1782397);
+	printf(" : ");
+	expected = printf("%b", 1782397);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
 	printf("End of Test: ");
 	if (passed)
 		printf("All Test Passed!\n");

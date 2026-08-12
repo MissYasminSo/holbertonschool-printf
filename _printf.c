@@ -23,6 +23,7 @@ int printer(char specifier, va_list *args, int *i)
 		{'o', print_octal},
 		{'x', print_hex},
 		{'X', print_hex_upper},
+		{'b', print_binary},
 		{'\0', NULL}
 	};
 
