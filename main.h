@@ -3,6 +3,11 @@
 
 #include <stdarg.h>
 
+/**
+ * struct specifier_s - Contains data for format specifiers
+ * @data_type: Type of data to be printed to string
+ * @print: Function to print data type to string
+ */
 typedef struct specifier_s
 {
 	char data_type;
