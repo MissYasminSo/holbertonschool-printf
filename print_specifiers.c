@@ -101,8 +101,8 @@ int print_unsigned_int(va_list *args)
 int print_binary(va_list *args)
 {
 	int count;
-	unsigned long nums;
-	unsigned long rev_nums;
+	unsigned int nums;
+	unsigned int rev_nums;
 	int num_length;
 
 	count = 0;

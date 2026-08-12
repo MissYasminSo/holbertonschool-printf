@@ -432,11 +432,36 @@ void test(void)
 		printf("failed\n\n");
 	}
 
-	
 	printf("Binary specifier case:\n");
 	actual = _printf("%b", 1782397);
 	printf(" : ");
 	expected = printf("%b", 1782397);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("Negative Binary specifier case:\n");
+	actual = _printf("%b", -1024);
+	printf(" : ");
+	expected = printf("%b", -1024);
+	printf("\nactual: %d expected %d\n", actual, expected);
+	if (actual == expected)
+		printf("success\n\n");
+	else
+	{
+		passed = 0;
+		printf("failed\n\n");
+	}
+
+	printf("UINT_MAX Binary specifier case:\n");
+	actual = _printf("%b", UINT_MAX);
+	printf(" : ");
+	expected = printf("%b", UINT_MAX);
 	printf("\nactual: %d expected %d\n", actual, expected);
 	if (actual == expected)
 		printf("success\n\n");
