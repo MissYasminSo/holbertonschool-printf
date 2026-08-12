@@ -93,6 +93,49 @@ int print_unsigned_int(va_list *args)
 }
 
 /**
+ * print_binary - Add binary to stdout
+ * @args: variadic list arguments
+ *
+ * Return: Number of characters printed
+ */
+int print_binary(va_list *args)
+{
+	int count;
+	unsigned long nums;
+	unsigned long rev_nums;
+	int num_length;
+
+	count = 0;
+	nums = va_arg(*args, int);
+	rev_nums = 0;
+	num_length = 0;
+
+	if (nums == 0)
+	{
+		_putchar('0');
+		count = count + 1;
+	}
+
+	while (nums > 0)
+	{
+		rev_nums = rev_nums * 2;
+		rev_nums = rev_nums + (nums % 2);
+		nums = nums / 2;
+		num_length = num_length + 1;
+	}
+
+	while (num_length > 0)
+	{
+		_putchar(rev_nums % 2 + '0');
+		count = count + 1;
+		rev_nums = rev_nums / 2;
+		num_length = num_length - 1;
+	}
+
+	return (count);
+}
+
+/**
  * print_octal - Add octal to stdout
  * @args: variadic list arguments
  *
