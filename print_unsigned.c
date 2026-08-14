@@ -202,7 +202,6 @@ int print_hex_upper(va_list *args)
 		_putchar('0');
 		count = count + 1;
 	}
-
 	while (nums > 0)
 	{
 		rev_nums = rev_nums * 16;
@@ -210,14 +209,17 @@ int print_hex_upper(va_list *args)
 		nums = nums / 16;
 		num_length = num_length + 1;
 	}
-
 	while (num_length > 0)
 	{
 		digit = rev_nums % 16;
 		if (digit > 10)
+		{
 			_putchar(digit - 10 + 'A');
+		}
 		else
+		{
 			_putchar(digit + '0');
+		}
 		count = count + 1;
 		rev_nums = rev_nums / 16;
 		num_length = num_length - 1;

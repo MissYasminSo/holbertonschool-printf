@@ -28,7 +28,9 @@ int printer(char specifier, va_list *args, int *i)
 	};
 
 	if (specifier == '\0')
+	{
 		return (-1);
+	}
 
 	j = 0;
 	while (specifiers[j].data_type != '\0')
